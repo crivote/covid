@@ -1,0 +1,16 @@
+{
+  "name": "unitar",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "jquery": "^3.5.0",
+    "sir.js": "^1.0.3"
+  }
+}

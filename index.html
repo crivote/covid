@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemic Simulator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: darkcyan;
+            text-transform: uppercase;
+        }
+
+        label {
+            text-transform: uppercase;
+            font-size: 14px;
+            color: grey;
+        }
+
+        input {
+            border-radius: 4px;
+            font-size: 26px;
+            width: 80px;
+            border: 1px solid darkcyan;
+            color: grey;
+            padding: 5px 5px 5px 10px;
+            margin-right: 25px;
+            text-align: right;
+        }
+
+        h1+div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pandemic simulator</h1>
+    <div style="text-align: center;">
+        <label for="beta">R0</label>
+        <input id="beta" type="number" value="1.5" step="0.05" min="0.1" max="3">
+        <label for="gamma">Recovery rate</label>
+        <input id="gamma" type="number" value="0.4" step="0.05" min="0.1" max="2">
+
+    </div>
+    <canvas id="myChart" style="max-height: 80vh;"></canvas>
+</body></html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="bundle.js"></script>
