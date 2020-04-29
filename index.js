@@ -5,7 +5,7 @@ let SIRjs = require('sir.js');
 let llamasir = function (beta, gamma, tiempo, initial) {
     let solution = [];
     solution = SIRjs.solve({
-        S0: 100 - initial,
+        S0: 1 - initial,
         I0: initial,
         R0: 0,
         t: 1,
@@ -44,9 +44,9 @@ let solution = [];
 let tiempo = 60;
 let resultado = llamasir(beta, gamma, tiempo, initial);
 
-let infectados = resultado.map(item => item.I);
-let sanos = resultado.map(item => item.S);
-let recuperados = resultado.map(item => item.R);
+let infectados = resultado.map(item => item.I < 0 ? 0 : item.I * 100);
+let sanos = resultado.map(item => item.S < 0 ? 0 : item.S * 100);
+let recuperados = resultado.map(item => item.R < 0 ? 0 : item.R * 100);
 let escala = Array.from(Array(tiempo).keys());
 
 ctx = document.getElementById('myChart').getContext('2d');
@@ -61,7 +61,7 @@ var chart = new Chart(ctx, {
         datasets: [{
                 label: 'Healthy',
                 borderColor: 'rgb(58, 193, 73)',
-                backgroundColor: 'rgba(58, 193, 73, 0.05)',
+                backgroundColor: 'rgba(58, 193, 73, 0.15)',
                 borderWidth: 5,
                 cubicInterpolationMode: 'monotone',
                 data: sanos
@@ -69,14 +69,14 @@ var chart = new Chart(ctx, {
             {
                 label: 'Infected',
                 borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.05)',
+                backgroundColor: 'rgba(255, 99, 132, 0.15)',
                 borderWidth: 5,
                 cubicInterpolationMode: 'monotone',
                 data: infectados
             }, {
                 label: 'Recovered',
                 borderColor: 'rgb(99, 123, 255)',
-                backgroundColor: 'rgba(99, 123, 255, 0.05)',
+                backgroundColor: 'rgba(99, 123, 255, 0.15)',
                 borderWidth: 5,
                 cubicInterpolationMode: 'monotone',
                 data: recuperados
@@ -91,9 +91,9 @@ $('#beta').on('change', function () {
     beta = $(this).val();
     let resultado = llamasir(beta, gamma, tiempo, initial);
 
-    let infectados = resultado.map(item => item.I);
-    let sanos = resultado.map(item => item.S);
-    let recuperados = resultado.map(item => item.R);
+    let infectados = resultado.map(item => item.I < 0 ? 0 : item.I * 100);
+    let sanos = resultado.map(item => item.S < 0 ? 0 : item.S * 100);
+    let recuperados = resultado.map(item => item.R < 0 ? 0 : item.R * 100);
     actualizagraph(sanos, infectados, recuperados);
 });
 
@@ -101,9 +101,9 @@ $('#gamma').on('change', function () {
     gamma = $(this).val();
     let resultado = llamasir(beta, gamma, tiempo, initial);
 
-    let infectados = resultado.map(item => item.I);
-    let sanos = resultado.map(item => item.S);
-    let recuperados = resultado.map(item => item.R);
+    let infectados = resultado.map(item => item.I < 0 ? 0 : item.I * 100);
+    let sanos = resultado.map(item => item.S < 0 ? 0 : item.S * 100);
+    let recuperados = resultado.map(item => item.R < 0 ? 0 : item.R * 100);
     actualizagraph(sanos, infectados, recuperados);
 });
 
@@ -111,8 +111,8 @@ $('#initial').on('change', function () {
     initial = $(this).val();
     let resultado = llamasir(beta, gamma, tiempo, initial);
 
-    let infectados = resultado.map(item => item.I);
-    let sanos = resultado.map(item => item.S);
-    let recuperados = resultado.map(item => item.R);
+    let infectados = resultado.map(item => item.I < 0 ? 0 : item.I * 100);
+    let sanos = resultado.map(item => item.S < 0 ? 0 : item.S * 100);
+    let recuperados = resultado.map(item => item.R < 0 ? 0 : item.R * 100);
     actualizagraph(sanos, infectados, recuperados);
 });
