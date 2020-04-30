@@ -9,40 +9,34 @@
     <style>
         body {
             font-family: sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-            font-weight: bold;
-            color: darkcyan;
-            text-transform: uppercase;
+            background-color: white;
         }
 
         label {
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
             color: grey;
         }
 
         input {
             border-radius: 4px;
-            font-size: 22px;
+            font-size: 18px;
             width: 50px;
             border: 1px solid darkcyan;
             color: grey;
             padding: 2px 2px 2px 5px;
-            margin-right: 25px;
+            margin-right: 20px;
             text-align: right;
         }
 
         h1+div {
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 
 <body>
-    <h1>Pandemic simulator</h1>
     <div style="text-align: center;">
         <label for="initial">inital infected %</label>
         <input id="initial" type="number" value="1" step="0.1" min="0.01" max="15">
@@ -55,6 +49,8 @@
 
     </div>
     <canvas id="myChart" style="max-height: 80vh;"></canvas>
-</body></html>
+</body>
+
+</html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="bundle.js"></script>
